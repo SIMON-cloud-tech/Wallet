@@ -17,6 +17,7 @@ const resetRoutes = require('./routes/resetRoutes');
 const revenueRoutes = require('./routes/revenueRoutes');
 const transactionRoutes = require('./routes/transactionRoutes');
 const mpesaRoutes = require('./routes/mpesaRoutes');
+const dataManageRoutes = require('./routes/dataManageRoutes');
 const seoRoutes = require('./routes/seoRoutes');
 
 // ==================== APP INIT ====================
@@ -113,6 +114,7 @@ app.use('/api/reset', resetRoutes);
 app.use('/api/revenue', revenueRoutes);
 app.use('/api/transactions', transactionRoutes);
 app.use('/api/mpesa', mpesaRoutes);
+app.use('/api/data', dataManageRoutes); // <-- Mount
 
 app.get('/api/test', (req, res) => {
   res.json({ message: 'Backend running' });

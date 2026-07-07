@@ -5,11 +5,12 @@ import Allocations from '../../Sidebaritems/jsx/Allocations.jsx';
 import Analytics from '../../Sidebaritems/jsx/Analytics.jsx';
 import Revenue from '../../Sidebaritems/jsx/Revenue.jsx';
 import Settings from '../../Sidebaritems/jsx/Settings.jsx';   
+import Vault from '../../Sidebaritems/jsx/Vault.jsx';
 
 import {
   FiBarChart2, FiPieChart, FiDollarSign, FiSettings,
   FiLogOut, FiChevronLeft, FiChevronRight, FiSun, FiMoon,
-  FiBell, FiX, FiCheckCircle, FiAlertTriangle, FiXCircle, FiInfo,
+  FiBell, FiX, FiCheckCircle, FiAlertTriangle, FiXCircle, FiInfo, FiDatabase
 } from 'react-icons/fi';
 import '../css/Dashboard.css';
 
@@ -18,6 +19,7 @@ const MENU_ICONS = {
   allocations: FiPieChart,
   revenue: FiDollarSign,
   settings: FiSettings,
+  vault: FiDatabase,
 };
 
 const NOTIFICATION_ICONS = {
@@ -55,6 +57,7 @@ const Dashboard = ({ setUser }) => {
     { id: 'allocations', label: 'Allocations' },
     { id: 'revenue', label: 'Revenue' },
     { id: 'settings', label: 'Settings' },
+    {id: 'vault', label: 'Vault'},
   ];
 
   // Fetch dashboard data from backend
@@ -147,6 +150,8 @@ const Dashboard = ({ setUser }) => {
         return <Revenue key={activeMenuItem + Date.now()}/>;
       case 'settings':
         return <Settings key={activeMenuItem + Date.now()}/>;
+      case 'vault':
+        return <Vault key={activeMenuItem + Date.now()} />
       default:
         return <p>Section not found</p>;
     }

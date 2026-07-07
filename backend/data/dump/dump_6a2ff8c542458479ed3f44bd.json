@@ -1,0 +1,54 @@
+{
+  "metadata": {
+    "userId": "6a2ff8c542458479ed3f44bd",
+    "timestamp": "2026-07-07T20:20:10.810Z",
+    "transactionCount": 1,
+    "allocationRuleCount": 2
+  },
+  "data": {
+    "transactions": [
+      {
+        "user": "6a2ff8c542458479ed3f44bd",
+        "mpesaCode": "TESTPAY021",
+        "amount": 5000,
+        "senderName": "Unknown",
+        "senderPhone": "254712345678",
+        "timestamp": "2026-07-07T20:19:03.820Z",
+        "allocations": [
+          {
+            "name": "Savings",
+            "amount": 200,
+            "percentage": 4,
+            "_id": "6a4d5f37f3f35b03920d3fae"
+          },
+          {
+            "name": "Basics",
+            "amount": 500,
+            "percentage": 10,
+            "_id": "6a4d5f37f3f35b03920d3faf"
+          }
+        ],
+        "createdAt": "2026-07-07T20:19:03.827Z",
+        "updatedAt": "2026-07-07T20:19:03.827Z"
+      }
+    ],
+    "allocationRules": [
+      {
+        "user": "6a2ff8c542458479ed3f44bd",
+        "name": "Savings",
+        "percentage": 4,
+        "reason": "Financial buffer",
+        "createdAt": "2026-07-07T20:17:35.459Z",
+        "updatedAt": "2026-07-07T20:17:35.459Z"
+      },
+      {
+        "user": "6a2ff8c542458479ed3f44bd",
+        "name": "Basics",
+        "percentage": 10,
+        "reason": "House, Food, Medical bills",
+        "createdAt": "2026-07-07T20:18:05.495Z",
+        "updatedAt": "2026-07-07T20:18:05.495Z"
+      }
+    ]
+  }
+}

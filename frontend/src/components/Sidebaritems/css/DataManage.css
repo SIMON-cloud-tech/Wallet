@@ -1,0 +1,229 @@
+/* src/components/DataManage.css */
+
+.data-manage-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.data-manage-logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.data-manage-logo img {
+  max-height: 80px;
+  width: auto;
+}
+
+.data-manage-description {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.data-manage-steps {
+  background: #f8f9fa;
+  padding: 20px 30px;
+  border-radius: 8px;
+  margin-bottom: 28px;
+}
+.data-manage-steps ol {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #333;
+}
+.data-manage-steps ol li strong {
+  color: #d9534f;
+}
+
+/* Button Group – touching each other */
+.data-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+.data-btn-group .data-btn {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 12px 20px;
+  border: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: filter 0.2s, transform 0.1s;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+.data-btn-group .data-btn:last-child {
+  border-right: none;
+}
+.data-btn-group .data-btn:hover:not(:disabled) {
+  filter: brightness(1.08);
+  transform: scale(1.02);
+}
+.data-btn-group .data-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.data-btn.soft-delete {
+  background: #f0ad4e;
+}
+.data-btn.restore {
+  background: #5bc0de;
+}
+.data-btn.empty-trash {
+  background: #d9534f;
+}
+.data-btn.report {
+  background: #5cb85c;
+}
+
+.data-feedback {
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+.data-feedback.success {
+  background: #dff0d8;
+  color: #3c763d;
+}
+.data-feedback.error {
+  background: #f2dede;
+  color: #a94442;
+}
+
+/* ===== Modals ===== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(2px);
+}
+.modal-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px 35px;
+  max-width: 520px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalFadeIn 0.2s ease;
+}
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.modal-card h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+.modal-message {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin: 15px 0 25px;
+  white-space: pre-wrap;
+}
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+.modal-btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.modal-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.modal-btn.cancel {
+  background: #f0f0f0;
+  color: #333;
+}
+.modal-btn.cancel:hover:not(:disabled) {
+  background: #ddd;
+}
+.modal-btn.confirm {
+  color: #fff;
+}
+.modal-btn.confirm.btn-soft-delete {
+  background: #f0ad4e;
+}
+.modal-btn.confirm.btn-soft-delete:hover:not(:disabled) {
+  background: #ec971f;
+}
+.modal-btn.confirm.btn-restore {
+  background: #5bc0de;
+}
+.modal-btn.confirm.btn-restore:hover:not(:disabled) {
+  background: #31b0d5;
+}
+.modal-btn.confirm.btn-empty-trash {
+  background: #d9534f;
+}
+.modal-btn.confirm.btn-empty-trash:hover:not(:disabled) {
+  background: #c9302c;
+}
+.modal-btn.confirm.btn-report {
+  background: #5cb85c;
+}
+.modal-btn.confirm.btn-report:hover:not(:disabled) {
+  background: #449d44;
+}
+
+/* ===== Responsive: Icons only on small screens ===== */
+@media (max-width: 600px) {
+  .data-btn-group .data-btn .btn-text {
+    display: none;
+  }
+  .data-btn-group .data-btn {
+    font-size: 1.2rem;
+    padding: 12px 8px;
+    flex: 1 1 0;
+  }
+  .data-btn-group .data-btn .btn-icon {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 601px) {
+  .data-btn-group .data-btn .btn-icon {
+    display: inline;
+  }
+}

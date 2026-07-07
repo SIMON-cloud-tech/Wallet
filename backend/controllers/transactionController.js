@@ -39,7 +39,7 @@ const getNotifications = async (req, res) => {
     transactions.forEach(txn => {
       notifications.push({
         id: `received-${txn._id}`,
-        message: `KSH ${txn.amount.toLocaleString()} received from ${txn.senderName || txn.senderPhone || 'Mpesa Customer'} - M-Pesa: ${txn.mpesaCode}`,
+        message: `KSH ${txn.amount.toLocaleString()} received from ${txn.phone || 'Mpesa Customer'} - M-Pesa: ${txn.mpesaCode}`,
         type: 'success',
         timestamp: txn.timestamp
       });
