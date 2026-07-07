@@ -102,7 +102,7 @@ const mpesaCallback = async (req, res) => {
         </tr>
         <tr>
           <td style="padding: 10px 12px; border-bottom: 1px solid #f0f0f0; color: #666666; font-size: 14px; font-weight: bold;">From</td>
-          <td style="padding: 10px 12px; border-bottom: 1px solid #f0f0f0; color: #333333; font-size: 14px; text-align: right;">${senderName || senderPhone || 'Mpesa Customer'}</td>
+          <td style="padding: 10px 12px; border-bottom: 1px solid #f0f0f0; color: #333333; font-size: 14px; text-align: right;">${phone || 'Mpesa Customer'}</td>
         </tr>
         <tr>
           <td style="padding: 10px 12px; border-bottom: 1px solid #f0f0f0; color: #666666; font-size: 14px; font-weight: bold;">M‑Pesa Code</td>
