@@ -120,7 +120,7 @@ const mpesaCallback = async (req, res) => {
 
       <!-- CTA Button -->
       <div style="text-align: center; margin: 24px 0 8px 0;">
-        <a href="https://wallet.onrender.com" 
+        <a href="https://wallet-l7g7.onrender.com" 
            style="display: inline-block; padding: 12px 30px; background-color: #3498db; color: #ffffff; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 14px;">
            Open Dashboard
         </a>
