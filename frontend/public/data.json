@@ -1,0 +1,60 @@
+{
+  "profile": {
+    "name": "John Doe"
+  },
+  "cards": [
+    { "title": "Visa", "value": "$5,240.00" },
+    { "title": "Mastercard", "value": "$2,150.00" },
+    { "title": "Amex", "value": "$8,750.00" },
+    { "title": "Savings", "value": "$12,300.00" }
+  ],
+  "stats": [
+    { "label": "Total Balance", "value": "$15,240" },
+    { "label": "Transactions Today", "value": "12" },
+    { "label": "Monthly Spending", "value": "$2,450" }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "message": "Transaction of $500.00 completed successfully",
+      "type": "success",
+      "timestamp": "2024-01-15T10:30:00Z"
+    },
+    {
+      "id": 2,
+      "message": "Your card payment is due in 3 days",
+      "type": "warning",
+      "timestamp": "2024-01-15T09:15:00Z"
+    },
+    {
+      "id": 3,
+      "message": "New login detected from Chrome browser",
+      "type": "info",
+      "timestamp": "2024-01-15T08:00:00Z"
+    },
+    {
+      "id": 4,
+      "message": "Failed login attempt blocked",
+      "type": "error",
+      "timestamp": "2024-01-14T22:45:00Z"
+    },
+    {
+      "id": 5,
+      "message": "Monthly statement ready for review",
+      "type": "info",
+      "timestamp": "2024-01-14T20:00:00Z"
+    },
+    {
+      "id": 6,
+      "message": "Deposit of $2,000.00 confirmed",
+      "type": "success",
+      "timestamp": "2024-01-14T15:30:00Z"
+    }
+  ],
+  "menuItems": [
+    { "id": "analytics", "label": "Analytics" },
+    { "id": "allocations", "label": "Allocations" },
+    { "id": "revenue", "label": "Revenue" },
+    { "id": "settings", "label": "Settings" }
+  ]
+}

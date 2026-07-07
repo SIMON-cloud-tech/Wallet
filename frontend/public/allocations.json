@@ -1,0 +1,8 @@
+{
+  "allocations": [
+    { "id": 1, "name": "Emergency Fund", "percentage": 30, "amount": 4500, "reason": "6 months of expenses" },
+    { "id": 2, "name": "Investments", "percentage": 25, "amount": 3750, "reason": "Long-term growth" },
+    { "id": 3, "name": "Travel", "percentage": 10, "amount": 1500, "reason": "Annual vacation fund" },
+    { "id": 4, "name": "Education", "percentage": 15, "amount": 2250, "reason": "Courses and certifications" }
+  ]
+}

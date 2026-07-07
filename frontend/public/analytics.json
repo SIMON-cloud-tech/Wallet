@@ -1,0 +1,120 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "received": "$5,240.00",
+      "timestamp": "10:00 AM 18/04/2026",
+      "allocations": [
+        { "name": "Savings", "amount": "$1,750.00" },
+        { "name": "Investment", "amount": "$1,500.00" },
+        { "name": "Bills", "amount": "$1,000.00" },
+        { "name": "Food", "amount": "$500.00" }
+      ]
+    },
+    {
+      "id": 2,
+      "received": "$3,150.00",
+      "timestamp": "09:30 AM 17/04/2026",
+      "allocations": [
+        { "name": "Rent", "amount": "$1,500.00" },
+        { "name": "Utilities", "amount": "$850.00" },
+        { "name": "Food", "amount": "$800.00" }
+      ]
+    },
+    {
+      "id": 3,
+      "received": "$8,750.00",
+      "timestamp": "02:15 PM 16/04/2026",
+      "allocations": [
+        { "name": "Investment", "amount": "$4,000.00" },
+        { "name": "Emergency", "amount": "$2,750.00" },
+        { "name": "Debt", "amount": "$2,000.00" }
+      ]
+    }
+  ],
+  "pyramids": [
+    {
+      "id": 1,
+      "timestamp": "10:00 AM 18/04/2026",
+      "allocations": [
+        { "name": "Savings", "percentage": 40 },
+        { "name": "Investment", "percentage": 30 },
+        { "name": "Bills", "percentage": 20 },
+        { "name": "Food", "percentage": 10 }
+      ]
+    },
+    {
+      "id": 2,
+      "timestamp": "09:30 AM 17/04/2026",
+      "allocations": [
+        { "name": "Rent", "percentage": 50 },
+        { "name": "Utilities", "percentage": 28 },
+        { "name": "Food", "percentage": 22 }
+      ]
+    },
+    {
+      "id": 3,
+      "timestamp": "02:15 PM 16/04/2026",
+      "allocations": [
+        { "name": "Investment", "percentage": 45 },
+        { "name": "Emergency", "percentage": 32 },
+        { "name": "Debt", "percentage": 23 }
+      ]
+    },
+    {
+      "id": 4,
+      "timestamp": "11:45 AM 15/04/2026",
+      "allocations": [
+        { "name": "Food", "percentage": 45 },
+        { "name": "Transport", "percentage": 33 },
+        { "name": "Entertainment", "percentage": 22 }
+      ]
+    },
+    {
+      "id": 5,
+      "timestamp": "08:00 AM 14/04/2026",
+      "allocations": [
+        { "name": "Mortgage", "percentage": 50 },
+        { "name": "Insurance", "percentage": 30 },
+        { "name": "Savings", "percentage": 20 }
+      ]
+    },
+    {
+      "id": 6,
+      "timestamp": "04:20 PM 13/04/2026",
+      "allocations": [
+        { "name": "Bills", "percentage": 40 },
+        { "name": "Groceries", "percentage": 35 },
+        { "name": "Gas", "percentage": 15 },
+        { "name": "Fun", "percentage": 10 }
+      ]
+    }
+  ],
+  "graphs": {
+    "lineGraph": [
+      { "receivable": "$5,240", "allocations": 4 },
+      { "receivable": "$3,150", "allocations": 3 },
+      { "receivable": "$8,750", "allocations": 3 },
+      { "receivable": "$2,100", "allocations": 3 },
+      { "receivable": "$6,500", "allocations": 3 }
+    ],
+    "pieChart": [
+      { "name": "Savings", "percentage": 35 },
+      { "name": "Investment", "percentage": 25 },
+      { "name": "Bills", "percentage": 20 },
+      { "name": "Food", "percentage": 12 },
+      { "name": "Others", "percentage": 8 }
+    ],
+    "barGraph": [
+      { "name": "Savings", "amount": 3500 },
+      { "name": "Investment", "amount": 2500 },
+      { "name": "Bills", "amount": 2000 },
+      { "name": "Food", "amount": 1200 },
+      { "name": "Rent", "amount": 1500 }
+    ]
+  },
+  "mostFunded": {
+    "name": "Savings",
+    "reason": "received 35% of total monthly allocations"
+  }
+}

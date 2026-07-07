@@ -1,0 +1,34 @@
+.revenue {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.revenue-section h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #2c3e50;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+th {
+  background: #2c3e50;
+  color: white;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+td {
+  padding: 0.5rem;
+  border-bottom: 1px solid #e1e8ed;
+}
+
+.revenue-loading {
+  text-align: center;
+  padding: 2rem;
+}

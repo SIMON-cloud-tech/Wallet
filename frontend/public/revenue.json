@@ -1,0 +1,38 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "timestamp": "10:00 AM 18/04/2026",
+      "receivable": "$5,240.00",
+      "from": "John Doe",
+      "mpesaCode": "RKT12M3456"
+    },
+    {
+      "id": 2,
+      "timestamp": "09:30 AM 17/04/2026",
+      "receivable": "$3,150.00",
+      "from": "Jane Smith",
+      "mpesaCode": "RKT98K7654"
+    },
+    {
+      "id": 3,
+      "timestamp": "02:15 PM 16/04/2026",
+      "receivable": "$8,750.00",
+      "from": "Bob M.",
+      "mpesaCode": "RKT54L3210"
+    },
+    {
+      "id": 4,
+      "timestamp": "11:45 AM 15/04/2026",
+      "receivable": "$2,100.00",
+      "from": "Alice K.",
+      "mpesaCode": "RKT77H8901"
+    }
+  ],
+  "allocations": [
+    { "id": 1, "name": "Savings", "amount": "$2,000.00", "percentage": 40 },
+    { "id": 2, "name": "Investment", "amount": "$1,500.00", "percentage": 30 },
+    { "id": 3, "name": "Bills", "amount": "$1,000.00", "percentage": 20 },
+    { "id": 4, "name": "Food", "amount": "$500.00", "percentage": 10 }
+  ]
+}

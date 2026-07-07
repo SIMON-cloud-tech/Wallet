@@ -1,0 +1,30 @@
+# Robots.txt for Simoncees FinTech
+# Generated for SEO optimization
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /node_modules/
+Crawl-delay: 2
+
+# Google-specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bing-specific
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://simoncees-fintech.com/sitemap.xml
+Sitemap: https://simoncees-fintech.com/sitemap-mobile.xml
+
+# Block bad bots
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: DotBot
+Disallow: /
