@@ -64,7 +64,7 @@ const mpesaCallback = async (req, res) => {
         <tr>
           <!-- Logo top‑left -->
           <td style="width: 60px; vertical-align: middle;">
-            <img src="https://wallet.onrender.com/logo.png"
+            <img src="https://wallet-l7g7.onrender.com/logo.png"
                  alt="Logo"
                  style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #ffffff;" />
           </td>
