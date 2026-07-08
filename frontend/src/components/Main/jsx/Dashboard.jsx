@@ -184,10 +184,7 @@ const Dashboard = ({ setUser }) => {
       {/* SIDEBAR */}
       <aside className={`sidebar ${mobileSidebarOpen ? 'sidebar-open' : ''}`}>
         <div className="sidebar-header">
-          <h2>Prestige Web Room Depository Wallet</h2>
-          <button onClick={() => setSidebarCollapsed(!sidebarCollapsed)} aria-label="Toggle sidebar">
-            {sidebarCollapsed ? <FiChevronRight /> : <FiChevronLeft />}
-          </button>
+          <h2>Wallet</h2>
         </div>
 
         <nav>
