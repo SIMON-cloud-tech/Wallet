@@ -76,7 +76,7 @@ const Auth = ({ setUser }) => {
             <source src={LogoVideo} type="video/mp4" />
           </video>
         </div>
-        <h1>FintechApp</h1>
+        <h1>Prestige Web Room Depository Wallet</h1>
         <p>Manage your finances, track allocations, and grow your savings all in one place.</p>
       </div>
 

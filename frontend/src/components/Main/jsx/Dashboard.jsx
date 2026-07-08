@@ -184,7 +184,7 @@ const Dashboard = ({ setUser }) => {
       {/* SIDEBAR */}
       <aside className={`sidebar ${mobileSidebarOpen ? 'sidebar-open' : ''}`}>
         <div className="sidebar-header">
-          <h2>FintechApp</h2>
+          <h2>Prestige Web Room Depository Wallet</h2>
           <button onClick={() => setSidebarCollapsed(!sidebarCollapsed)} aria-label="Toggle sidebar">
             {sidebarCollapsed ? <FiChevronRight /> : <FiChevronLeft />}
           </button>
@@ -300,7 +300,7 @@ const Dashboard = ({ setUser }) => {
         </section>
 
         <footer className="dashboard-footer">
-          <p>© 2024 FintechApp. All rights reserved.</p>
+          <p>© 2024 Prestige Web Room Depository Wallet. All rights reserved.</p>
         </footer>
       </main>
     </div>
