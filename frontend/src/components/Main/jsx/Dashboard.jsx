@@ -10,7 +10,8 @@ import Vault from '../../Sidebaritems/jsx/Vault.jsx';
 import {
   FiBarChart2, FiPieChart, FiDollarSign, FiSettings,
   FiLogOut, FiChevronLeft, FiChevronRight, FiSun, FiMoon,
-  FiBell, FiX, FiCheckCircle, FiAlertTriangle, FiXCircle, FiInfo, FiDatabase
+  FiBell, FiX, FiCheckCircle, FiAlertTriangle, FiXCircle, FiInfo, FiDatabase,
+  FiMenu // <-- ADDED
 } from 'react-icons/fi';
 import '../css/Dashboard.css';
 
@@ -50,14 +51,22 @@ const Dashboard = ({ setUser }) => {
   const [notifications, setNotifications] = useState([]);
   const [stats, setStats] = useState([]);
   const [expandedNotifications, setExpandedNotifications] = useState(false);
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
-  // Menu items - static, no need for API
+  const toggleMobileSidebar = () => {
+    setMobileSidebarOpen(!mobileSidebarOpen);
+  };
+
+  const closeMobileSidebar = () => {
+    setMobileSidebarOpen(false);
+  };
+
   const menuItems = [
     { id: 'analytics', label: 'Analytics' },
     { id: 'allocations', label: 'Allocations' },
     { id: 'revenue', label: 'Revenue' },
     { id: 'settings', label: 'Settings' },
-    {id: 'vault', label: 'Vault'},
+    { id: 'vault', label: 'Vault' },
   ];
 
   // Fetch dashboard data from backend
@@ -67,19 +76,16 @@ const Dashboard = ({ setUser }) => {
 
     const fetchDashboard = async () => {
       try {
-        // Fetch recent transactions for cards
         const cardsRes = await fetch('/api/transactions/recent', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         const cardsData = await cardsRes.json();
 
-        // Fetch notifications
         const notifRes = await fetch('/api/transactions/notifications', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         const notifData = await notifRes.json();
 
-        // Fetch profile
         const profileRes = await fetch('/api/profile', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
@@ -100,25 +106,22 @@ const Dashboard = ({ setUser }) => {
     fetchDashboard();
   }, []);
 
-  // ADD THIS - refetches profile when sidebar item changes (user navigates)
-    useEffect(() => {
+  useEffect(() => {
     const token = localStorage.getItem('token');
     if(!token) return;
     
     fetch('/api/profile', {
-    headers: { 'Authorization': `Bearer ${token}` }
+      headers: { 'Authorization': `Bearer ${token}` }
     })
     .then(res => res.json())
     .then(data => setProfile(data))
     .catch(err => console.error(err));
-    }, [activeMenuItem]);
+  }, [activeMenuItem]);
 
-  // Remove notification
   const clearNotification = (id) => {
     setNotifications((prev) => prev.filter((n) => n.id !== id));
   };
 
-  // Format timestamp
   const getTimeAgo = (timestamp) => {
     const diffMs = Date.now() - new Date(timestamp);
     const diffMins = Math.floor(diffMs / 60000);
@@ -132,14 +135,12 @@ const Dashboard = ({ setUser }) => {
     return new Date(timestamp).toLocaleDateString();
   };
 
-  // Logout
   const handleLogout = () => {
     localStorage.removeItem('token');
     setUser(null);
     navigate('/auth');
   };
 
-  // Render content based on sidebar selection
   const renderContentPanel = () => {
     switch (activeMenuItem) {
       case 'analytics':
@@ -151,7 +152,7 @@ const Dashboard = ({ setUser }) => {
       case 'settings':
         return <Settings key={activeMenuItem + Date.now()}/>;
       case 'vault':
-        return <Vault key={activeMenuItem + Date.now()} />
+        return <Vault key={activeMenuItem + Date.now()} />;
       default:
         return <p>Section not found</p>;
     }
@@ -165,10 +166,25 @@ const Dashboard = ({ setUser }) => {
   return (
     <div className={`dashboard ${theme}`}>
       
+      {/* HAMBURGER BUTTON - visible on mobile */}
+      <button 
+        className="mobile-hamburger" 
+        onClick={toggleMobileSidebar}
+        aria-label="Toggle sidebar"
+      >
+        <FiMenu size={20} />
+      </button>
+
+      {/* SIDEBAR OVERLAY - for mobile */}
+      <div 
+        className={`sidebar-overlay ${mobileSidebarOpen ? 'visible' : ''}`} 
+        onClick={closeMobileSidebar}
+      />
+
       {/* SIDEBAR */}
-      <aside className={`sidebar ${sidebarCollapsed ? 'collapsed' : ''}`}>
+      <aside className={`sidebar ${mobileSidebarOpen ? 'sidebar-open' : ''}`}>
         <div className="sidebar-header">
-          {!sidebarCollapsed && <h2>FintechApp</h2>}
+          <h2>FintechApp</h2>
           <button onClick={() => setSidebarCollapsed(!sidebarCollapsed)} aria-label="Toggle sidebar">
             {sidebarCollapsed ? <FiChevronRight /> : <FiChevronLeft />}
           </button>
@@ -181,7 +197,10 @@ const Dashboard = ({ setUser }) => {
               <button
                 key={item.id}
                 className={`sidebar-item ${activeMenuItem === item.id ? 'active' : ''}`}
-                onClick={() => setActiveMenuItem(item.id)}
+                onClick={() => {
+                  setActiveMenuItem(item.id);
+                  closeMobileSidebar();
+                }}
                 title={sidebarCollapsed ? item.label : ''}
               >
                 <span className="sidebar-icon"><Icon size={18} /></span>
@@ -192,12 +211,10 @@ const Dashboard = ({ setUser }) => {
         </nav>
 
         <div className="sidebar-footer">
-          {!sidebarCollapsed && (
-            <button className="logout-btn" onClick={handleLogout}>
-              <span className="sidebar-icon"><FiLogOut size={18} /></span>
-              <span className="sidebar-label">Logout</span>
-            </button>
-          )}
+          <button className="logout-btn" onClick={handleLogout}>
+            <span className="sidebar-icon"><FiLogOut size={18} /></span>
+            {!sidebarCollapsed && <span className="sidebar-label">Logout</span>}
+          </button>
           <button className="theme-toggle" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
             <span className="sidebar-icon">
               {theme === 'light' ? <FiMoon size={18} /> : <FiSun size={18} />}
@@ -253,29 +270,27 @@ const Dashboard = ({ setUser }) => {
                 <p>No new notifications</p>
               ) : (
                 <>
-                {(expandedNotifications ? notifications : notifications.slice(0, 5)).map((notification) => {
-                  const Icon = NOTIFICATION_ICONS[notification.type] || FiInfo;
-                  return (
-                    <div key={notification.id} className={`notification-item ${notification.type}`}>
-                      <span><Icon /></span>
-                      <div className="notification-content">
-                        <p>{notification.message}</p>
-                        <span className="notification-time">{getTimeAgo(notification.timestamp)}</span>
+                  {(expandedNotifications ? notifications : notifications.slice(0, 5)).map((notification) => {
+                    const Icon = NOTIFICATION_ICONS[notification.type] || FiInfo;
+                    return (
+                      <div key={notification.id} className={`notification-item ${notification.type}`}>
+                        <span><Icon /></span>
+                        <div className="notification-content">
+                          <p>{notification.message}</p>
+                          <span className="notification-time">{getTimeAgo(notification.timestamp)}</span>
+                        </div>
+                        <button onClick={() => clearNotification(notification.id)} aria-label="Dismiss">×</button>
                       </div>
-                      <button onClick={() => clearNotification(notification.id)} aria-label="Dismiss">×</button>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
 
-                {notifications.length > 4 && (
-                 <p   className="show-more-link" onClick={() => setExpandedNotifications(!expandedNotifications)}
-                  >
-                  {expandedNotifications  ? 'Show less': 'Show more (' + (notifications.length - 4) + ' more)'}
-                 </p>
-                )}
+                  {notifications.length > 4 && (
+                    <p className="show-more-link" onClick={() => setExpandedNotifications(!expandedNotifications)}>
+                      {expandedNotifications ? 'Show less' : 'Show more (' + (notifications.length - 4) + ' more)'}
+                    </p>
+                  )}
                 </>
               )}
-              
             </div>
           ) : (
             <button className="notifications-toggle" onClick={() => setShowNotifications(true)} aria-label="Show notifications">
